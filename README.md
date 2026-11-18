@@ -213,6 +213,10 @@ Tips learned along the way:
   returns 404, and with a wrong or missing token it returns 401. The hourly
   cron doesn't use this endpoint.
 
+## License
+
+[MIT](LICENSE)
+
 ## Disclaimer
 
 Not affiliated with or endorsed by Google or OptiSigns.

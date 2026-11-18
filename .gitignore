@@ -1,0 +1,16 @@
+node_modules/
+.wrangler/
+
+# Real deployment config (account/location/KV IDs) -- use wrangler.example.toml as the template
+wrangler.toml
+
+# Local secrets
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+
+# Local tooling settings
+.claude/
+.DS_Store

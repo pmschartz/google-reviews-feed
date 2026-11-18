@@ -1,0 +1,30 @@
+# Copy this file to wrangler.toml (which is git-ignored) and fill in your values.
+name = "google-reviews-feed"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+# Refresh the cached reviews once an hour.
+[triggers]
+crons = ["0 * * * *"]
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+# Create with: npx wrangler kv namespace create REVIEWS_KV
+[[kv_namespaces]]
+binding = "REVIEWS_KV"
+id = "YOUR_KV_NAMESPACE_ID"
+
+[vars]
+BUSINESS_NAME = "Your Business Name"
+GOOGLE_ACCOUNT_ID = "YOUR_GBP_ACCOUNT_ID"
+GOOGLE_LOCATION_ID = "YOUR_GBP_LOCATION_ID"
+REVIEW_COUNT = "10"
+MAX_REVIEW_CHARS = "400"
+
+# Secrets (set with `npx wrangler secret put <NAME>`, never stored in this file):
+#   GOOGLE_CLIENT_ID
+#   GOOGLE_CLIENT_SECRET
+#   GOOGLE_REFRESH_TOKEN
+#   REFRESH_SECRET   (any long random string; protects the /refresh endpoint)
